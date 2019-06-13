@@ -1,0 +1,29 @@
+<h2>日程調整サイト</h2>
+
+<%=form_tag("confirm") do %>
+
+<!-- <input type="text" name="name"> -->
+<p>名前：<%= text_field_tag :name %></p>
+
+<table border="1">
+  <tr><td>日\時</td>
+    <% @hour.each do |h| %>
+      <td><%=h %></td>
+    <% end %>
+  </tr>
+  <% @day.each do |d| %>
+    <tr>
+      <td><%=d %></td>
+      <% @hour.each do |h| %>
+        <td>
+          <% uniq="#{d}-#{h}" %>
+          <%# <%=uniq %>
+          <%=check_box "checklist",uniq %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<input type="submit" value="投票">
+<% end %>

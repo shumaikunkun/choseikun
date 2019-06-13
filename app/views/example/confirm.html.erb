@@ -1,0 +1,26 @@
+
+
+<%=@test %><br><br><br>
+
+<p>名前：<%=@name %></p>
+<table border="1">
+  <tr><td>日\時</td>
+    <% @hour.each do |h| %>
+      <td><%=h %></td>
+    <% end %>
+  </tr>
+  <% @day.each do |d| %>
+    <tr>
+      <td><%=d %></td>
+      <% @hour.each do |h| %>
+        <td>
+          <% if @test1[@day.index(d)][@hour.index(h)]=="1" %>
+            <h2>🙆‍♂️</h2>
+          <% else %>
+            <h2>🙅‍♀️</h2>
+          <% end %>
+        </td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>
