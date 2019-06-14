@@ -1,26 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>日程調整サイト</title>
+  <%= stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track'=>true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track'=>true %>
+  <%= csrf_meta_tags %>
+</head>
 
+<body>
+  <h1>日程調整サイト</h1>
+  <div  class="big">
+    <div class="small">
 
-<%=@test %><br><br><br>
+      <%=@test %><br><br><br>
 
-<p>名前：<%=@name %></p>
-<table border="1">
-  <tr><td>日\時</td>
-    <% @hour.each do |h| %>
-      <td><%=h %></td>
-    <% end %>
-  </tr>
-  <% @day.each do |d| %>
-    <tr>
-      <td><%=d %></td>
-      <% @hour.each do |h| %>
-        <td>
-          <% if @test1[@day.index(d)][@hour.index(h)]=="1" %>
-            <h2>🙆‍♂️</h2>
-          <% else %>
-            <h2>🙅‍♀️</h2>
+      <p>名前：<%=@name %></p>
+
+      <table border="1">
+        <tr>
+          <td>日\時</td>
+          <% @hour.each do |h| %>
+          <td><%=h %></td>
           <% end %>
-        </td>
-      <% end %>
-    </tr>
-  <% end %>
-</table>
+        </tr>
+        <% @day.each do |d| %>
+        <tr>
+          <td><%=d %></td>
+          <% @hour.each do |h| %>
+          <td>
+            <% if @test1[@day.index(d)][@hour.index(h)]=="1" %>
+            <h2>🙆‍♂</h2>
+            <% else %>
+            <h2>🙅‍♀</h2>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+  <div class="under">
+    <p class="copyright">&#169;2019 Shumaikun</p>
+  </div>
+</body>
+</html>

@@ -11,8 +11,8 @@ class ExampleController < ApplicationController
     @name=params['name']
     @test=params[:checklist]
     @test1=Array.new(@day.size){Array.new(@hour.size,0)}
-    params[:checklist].each{|k,v|
+    params[:checklist].each do |k,v|
       @test1[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v
-    }
+    end
   end
 end

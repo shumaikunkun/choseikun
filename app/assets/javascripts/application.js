@@ -14,3 +14,34 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//その日の全時間を選択
+function check(id,bool){
+  //window.alert(id);
+  if(bool==true){
+    for(i=0;i<document.getElementsByClassName(id).length;i++){
+        document.getElementsByClassName(id)[i].checked=true;
+    }
+  }else{
+    for(i=0;i<document.getElementsByClassName(id).length;i++){
+        document.getElementsByClassName(id)[i].checked=false;
+    }
+  }
+  //idは配列型になることに注意
+  //document.write(id);
+}
+
+//全ての日の全時間を選択
+function allcheck(bool){
+  if(bool==true){
+    var count=document.vote.elements.length;
+    for(i=0;i<count;i++){
+      document.vote.elements[i].checked=true;
+    }
+  }else{
+    var count=document.vote.elements.length;
+    for(i=0;i<count;i++){
+      document.vote.elements[i].checked=false;
+    }
+  }
+}
