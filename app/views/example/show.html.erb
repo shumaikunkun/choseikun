@@ -11,11 +11,12 @@
   <h1>日程調整サイト</h1>
   <div  class="big">
     <div class="small">
-      <h2>投票完了しました。</h2>
 
-      <p>名前：<%=@name %></p>
-      <p>時間：<%=@time %></p>
+      <% @all_datas.each do |k,v| %>
+      <% @test1=Array.new(@day.size){Array.new(@hour.size,0)} %>
+      <% v.each {|k,v| @test1[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v} %>
 
+      <p>名前：<%=k %></p>
       <table border="1">
         <tr>
           <td>日\時</td>
@@ -28,7 +29,7 @@
           <td><%=d %></td>
           <% @hour.each do |h| %>
           <td>
-            <% if @test1[@day.index(d)][@hour.index(h)]=="1" %>
+            <% if @test1[@day.index(d)][@hour.index(h)]==1 %>
             <h2>🙆‍♂</h2>
             <% else %>
             <h2>🙅‍♀</h2>
@@ -38,7 +39,9 @@
         </tr>
         <% end %>
       </table>
-      <h2>投票結果は<a href="http://localhost:3000/example/show">こちら</a>をクリック</h2>
+
+      <% end %>
+
     </div>
   </div>
   <div class="under">
