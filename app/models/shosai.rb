@@ -1,0 +1,2 @@
+class Shosai < ApplicationRecord
+end
