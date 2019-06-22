@@ -12,10 +12,10 @@
     <div class="small">
 
       <% if request.path_info=="/" %>  <!--パスがルートからの投票する時とでパス先を分ける-->
-      <% path="example/confirm" %>
+        <% path="example/confirm" %>
       <% end %>
       <% if request.path_info=="/example/vote" %>
-      <% path="confirm" %>
+        <% path="confirm" %>
       <% end %>
       <!--
       url を表示=> request.url
