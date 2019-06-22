@@ -14,7 +14,7 @@ class ExampleController < ApplicationController
     @test=params[:checklist]
     @test1=Array.new(@day.size){Array.new(@hour.size,0)}
     @test.each do |k,v|
-      Shosai.create(name:@name,key:k,value:v)  #データベース格納
+      #Shosai.create(name:@name,key:k,value:v)  #データベース格納
       @test1[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v
     end
   end

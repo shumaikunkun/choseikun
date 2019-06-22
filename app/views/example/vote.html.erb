@@ -10,7 +10,19 @@
   <h1>日程調整サイト</h1>
   <div  class="big">
     <div class="small">
-      <%=form_tag("example/confirm", name:"vote")  do %>
+
+      <% if request.path_info=="/" %>  <!--パスがルートからの投票する時とでパス先を分ける-->
+      <% path="example/confirm" %>
+      <% end %>
+      <% if request.path_info=="/example/vote" %>
+      <% path="confirm" %>
+      <% end %>
+      <!--
+      url を表示=> request.url
+      path => request.fullpath
+      クエリ文字列なしのpath => request.path_info
+      -->
+      <%=form_tag(path, name:"vote")  do %>
       <!-- <input type="text" name="name"> -->
       <p>名前：<%= text_field_tag :name %></p>
 
