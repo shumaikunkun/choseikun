@@ -6,27 +6,27 @@ class ExampleController < ApplicationController
   end
 
   def vote
-    @day=['7/20','7/21','7/22','7/23','7/24',]
-    @hour=[10,11,12,13,14,15,16]
+    @day=Daymodel.where(num:params[:num]).pluck(:day)
+    @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
   end
 
   def confirm
-    @day=['7/20','7/21','7/22','7/23','7/24',]
-    @hour=[10,11,12,13,14,15,16]
+    @day=Daymodel.where(num:params[:num]).pluck(:day)
+    @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
 
     @name=params['name']
     @time=Time.now.strftime("%Y年%m月%d日 %H:%M:%S")
     @test=params[:checklist]
     @test1=Array.new(@day.size){Array.new(@hour.size,0)}
     @test.each do |k,v|
-      Shosai.create(name:@name,key:k,value:v,num:params[:num])  #データベース格納
+      #Shosai.create(name:@name,key:k,value:v,num:params[:num])  #データベース格納
       @test1[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v
     end
   end
 
   def show
-    @day=['7/20','7/21','7/22','7/23','7/24',]
-    @hour=[10,11,12,13,14,15,16]
+    @day=Daymodel.where(num:params[:num]).pluck(:day)
+    @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
 
     @all_user=Shosai.where(num:params[:num]).pluck(:name).uniq  #ユーザー一覧
     @all_datas={}

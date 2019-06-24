@@ -1,0 +1,2 @@
+class Hourmodel < ApplicationRecord
+end

@@ -1,0 +1,2 @@
+class Daymodel < ApplicationRecord
+end

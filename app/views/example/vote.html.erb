@@ -10,7 +10,6 @@
   <h1>日程調整サイト</h1>
   <div  class="big">
     <div class="small">
-      <% path="confirm" %>
       <!--
       ルートからと同じパスからのページ参照があるせいでフォーム先のページを
       条件分岐する必要がある際に以下のコマンドで現在のパスを得る
@@ -18,7 +17,7 @@
       path => request.fullpath
       クエリ文字列なしのpath => request.path_info
       -->
-      <%=form_tag(path, name:"vote")  do %>
+      <%=form_tag("confirm", name:"vote")  do %>
       <!-- <input type="text" name="name"> -->
       <p>名前：<%= text_field_tag :name %></p>
 
