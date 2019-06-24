@@ -6,13 +6,20 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track'=>true %>
   <%= csrf_meta_tags %>
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
+  <style>input[type="text"]{width:500px;}</style>
+
+
+
 </head>
 <body>
   <h1>日程調整サイト</h1>
   <div  class="big">
     <div class="small">
 
-
+<input type="text" id="flatpickr">
 
 
     </div>
@@ -20,5 +27,17 @@
   <div class="under">
     <p class="copyright">&#169;2019 Shumaikun</p>
   </div>
+
+  <script>
+    flatpickr("#flatpickr", {locale:"ja",
+    minDate:"today",
+    mode: "multiple",
+dateFormat: "m/d",
+inline: true,
+
+  });
+
+  </script>
+
 </body>
 </html>
