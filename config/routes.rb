@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   get 'example/vote'
   post 'example/confirm'
   get 'example/show'
+  get '*num/memo', to: 'example#memo'
   root 'example#vote'
 end
