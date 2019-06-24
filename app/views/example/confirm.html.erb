@@ -38,7 +38,7 @@
         </tr>
         <% end %>
       </table>
-      <h2>投票結果は<a href="http://localhost:3000/example/show">こちら</a>をクリック</h2>
+      <h2>投票結果は<%= link_to("こちら","http://localhost:3000/#{params[:num]}/show") %>をクリック</h2>
     </div>
   </div>
   <div class="under">

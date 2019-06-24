@@ -10,14 +10,10 @@
   <h1>日程調整サイト</h1>
   <div  class="big">
     <div class="small">
-
-      <% if request.path_info=="/" %>  <!--パスがルートからの投票する時とでパス先を分ける-->
-        <% path="example/confirm" %>
-      <% end %>
-      <% if request.path_info=="/example/vote" %>
-        <% path="confirm" %>
-      <% end %>
+      <% path="confirm" %>
       <!--
+      ルートからと同じパスからのページ参照があるせいでフォーム先のページを
+      条件分岐する必要がある際に以下のコマンドで現在のパスを得る
       url を表示=> request.url
       path => request.fullpath
       クエリ文字列なしのpath => request.path_info
