@@ -25,3 +25,14 @@ Hourmodel.create(:hour=>"17", :num=>0)
 Hourmodel.create(:hour=>"18", :num=>0)
 Hourmodel.create(:hour=>"19", :num=>0)
 Hourmodel.create(:hour=>"20", :num=>0)
+
+
+Daymodel.create(:day=>"1/1", :num=>1)
+Daymodel.create(:day=>"1/2", :num=>1)
+Daymodel.create(:day=>"1/5", :num=>1)
+Daymodel.create(:day=>"1/7", :num=>1)
+
+Hourmodel.create(:hour=>"0", :num=>1)
+Hourmodel.create(:hour=>"1", :num=>1)
+Hourmodel.create(:hour=>"10", :num=>1)
+Hourmodel.create(:hour=>"11", :num=>1)

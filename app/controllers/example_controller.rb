@@ -2,7 +2,8 @@
 class ExampleController < ApplicationController
 
   def home
-
+    @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
+    
   end
 
   def vote
@@ -14,13 +15,12 @@ class ExampleController < ApplicationController
     @day=Daymodel.where(num:params[:num]).pluck(:day)
     @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
 
-    @name=params['name']
-    @time=Time.now.strftime("%Y年%m月%d日 %H:%M:%S")
-    @test=params[:checklist]
-    @test1=Array.new(@day.size){Array.new(@hour.size,0)}
-    @test.each do |k,v|
+    @name=params['name']  #投票者名
+    @time=Time.now.strftime("%Y年%m月%d日 %H:%M:%S")  #投票時間
+    @test=Array.new(@day.size){Array.new(@hour.size,0)}
+    params[:checklist].each do |k,v|
       #Shosai.create(name:@name,key:k,value:v,num:params[:num])  #データベース格納
-      @test1[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v
+      @test[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v
     end
   end
 
@@ -38,6 +38,5 @@ class ExampleController < ApplicationController
   end
 
   def memo
-
   end
 end
