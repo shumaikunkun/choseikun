@@ -47,15 +47,15 @@
           <td>
             <%# <%=button_to "#{d}の全時間を選択" %>
             <!-- <input type="button" value="#{d}の全時間を選択" > -->
-            <%= button_tag "#{d}の全時間を選択", type:'button', onclick: "check('#{d}',true)" %>
-            <%= button_tag "解除", type:'button', onclick: "check('#{d}',false)" %>
+            <%= button_tag "#{d}の全時間を選択", type:'button', onclick: "check('#{d}',true)", class:"button1" %>
+            <%= button_tag "解除", type:'button', onclick: "check('#{d}',false)", class:"button2" %>
           </td>
         </tr>
         <% end %>
       </table>
       <br />
-      <%= button_tag "全選択", type:'button', onclick: "allcheck(true)" %>
-      <%= button_tag "全解除", type:'button', onclick: "allcheck(false)" %>
+      <%= button_tag "全選択", type:'button', onclick: "allcheck(true)", class:"button1" %>
+      <%= button_tag "全解除", type:'button', onclick: "allcheck(false)", class:"button2" %>
       <input type="submit" value="投票">
       <% end %>
 

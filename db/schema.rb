@@ -33,9 +33,9 @@ ActiveRecord::Schema.define(version: 2019_06_24_174936) do
     t.string "name"
     t.string "key"
     t.integer "value"
+    t.integer "num"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "num"
   end
 
 end

@@ -60,11 +60,89 @@
  }
 
 .left{
-  float:left;
-  height: 500px;
+  text-align: left;
+
 }
 
 .right{
-  float:right;
-  height: 500px;
+
+}
+
+.title {
+  position: relative;/*相対位置*/
+  padding: 0.5em 0.5em 0.5em 1.5em;/*アイコン分のスペース*/
+  line-height: 1.4;/*行高*/
+  color: #ff6a6a;/*文字色*/
+  border-top: dotted 1px gray;
+  border-bottom: dotted 1px gray;
+  background: #fffff4;
+}
+
+.title:before {
+  font-family: "Font Awesome 5 Free";/*忘れずに*/
+  content: "\f138";/*アイコンのユニコード*/
+  position: absolute;/*絶対位置*/
+  font-size: 1em;/*サイズ*/
+  left: 0.25em;/*アイコンの位置*/
+  top: 0.5em;/*アイコンの位置*/
+  color: #ff6a6a; /*アイコン色*/
+}
+
+
+input[type="submit"]{
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  background: white;
+
+  border: solid 2px #67c5ff;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.button1{
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #66cdaa;
+  background: white;
+
+  border: solid 2px #66cdaa;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.button2{
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #fa8072;
+  background: white;
+
+  border: solid 2px #fa8072;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+input[type="submit"]:hover {
+  background: #67c5ff;
+  color: white;
+}
+
+.button1:hover {
+  background: #66cdaa;
+  color: white;
+}
+
+.button2:hover {
+  background: #fa8072;
+  color: white;
+}
+
+input[type="text"]
+{
+    border-color: #e0ffff;   /* 枠線の色 */
+    background-color: #fff8dc;  /* 背景色 */
+    outline: none;           /* ※ブラウザが標準で付加する線を消したいとき */
 }

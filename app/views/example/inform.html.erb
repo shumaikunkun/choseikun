@@ -1,7 +1,27 @@
-投票サイトを作成しました。
-日付は、<%@input_day.each do|h|%>
-<%=h %>
-<% end %>
-<%=@input_hour %>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>日程調整サイト生成サイト</title>
+  <%= stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track'=>true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track'=>true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <h1>日程調整サイト生成サイト</h1>
+  <div  class="big">
+    <div class="small">
 
-<h2><%= link_to("http://localhost:3000/#{@page_count}/vote","http://localhost:3000/#{@page_count}/vote") %>で投票できます。</h2>
+      <h3>投票サイトを作成しました。</h3>
+      <h3>日付の範囲は、<%@input_day.each do|d|%><%=d %><% if @input_day.index(d)!=@input_day.size-1 %>,<% end %><% end %>です。</h3>
+      <h3>時間の範囲は、<%@input_hour.each do|h|%><%=h %>時<% if @input_hour.index(h)!=@input_hour.size-1 %>,<% end %><% end %>です。</h3>
+
+      <h2><%= link_to("http://localhost:3000/#{@page_count}/vote","http://localhost:3000/#{@page_count}/vote") %>で投票でき、<br/>
+        <%= link_to("http://localhost:3000/#{@page_count}/show","http://localhost:3000/#{@page_count}/show") %>で結果が見れます。</h2>
+
+      </div>
+    </div>
+    <div class="under">
+      <p class="copyright">&#169;2019 Shumaikun</p>
+    </div>
+  </body>
+  </html>

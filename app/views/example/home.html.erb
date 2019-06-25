@@ -11,26 +11,30 @@
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
   <style>input[type="text"]{width:400px;}</style>
 
-
-
 </head>
 <body>
   <h1>日程調整サイト生成サイト</h1>
   <div  class="big">
     <div class="small">
 
-<%=form_tag("example/inform", name:"make")  do %>
-<div class="left">
-  <input type="text" id="flatpickr1" name="day">
-</div>
+      <%=form_tag("example/inform", name:"make")  do %>
+      <div class="left">
+        <h2 class="title">日付を選択してください。</h2>
+        <p>選択日付</p>
+        <input type="text" id="flatpickr1" name="day">
+      </div>
 
-<div class="right">
-  <input type="text" id="flatpickr2" name="start">
-  <input type="text" id="flatpickr2" name="finish">
-</div>
+      <div class="right">
+        <h2 class="title">時間を選択してください。</h2>
+        <p>開始時刻</p>
+        <input type="text" id="flatpickr2" name="start">
+        <p>終了時刻</p>
+        <input type="text" id="flatpickr2" name="finish">
+      </div>
 
-<input type="submit" value="作成" onclick="return checkForm();">
-<% end %>
+      <br>
+      <input type="submit" value="作成" onclick="return checkForm();">
+      <% end %>
 
     </div>
   </div>
@@ -44,7 +48,7 @@
     minDate:"today",
     mode: "multiple",
     dateFormat: "m/d",
-    inline: true,
+
   });
   flatpickr("#flatpickr2",
   {
@@ -52,9 +56,9 @@
     noCalendar: true,
     dateFormat: "H",
     time_24hr: true,
-    inline: true,
-});
-  </script>
+
+  });
+</script>
 
 </body>
 </html>
