@@ -23,8 +23,9 @@
       クエリ文字列なしのpath => request.path_info
       -->
       <%=form_tag("confirm", name:"vote")  do %>
-      <!-- <input type="text" name="name"> -->
-      <p>名前：<%= text_field_tag :name %></p>
+      <%# <%= text_field_tag :name %>
+      <p>予定の合う時間をチェックしてください</p>
+      <p>名前：<input type="text" name="name"></p>
 
       <table border="1">
         <tr>
@@ -56,7 +57,7 @@
       <br />
       <%= button_tag "全選択", type:'button', onclick: "allcheck(true)", class:"button1" %>
       <%= button_tag "全解除", type:'button', onclick: "allcheck(false)", class:"button2" %>
-      <input type="submit" value="投票">
+      <input type="submit" value="投票" onclick="return checkForm1();">
       <% end %>
 
 

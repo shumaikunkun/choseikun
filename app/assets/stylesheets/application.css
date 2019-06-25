@@ -143,6 +143,10 @@ input[type="submit"]:hover {
 input[type="text"]
 {
     border-color: #e0ffff;   /* 枠線の色 */
-    background-color: #fff8dc;  /* 背景色 */
+    background-color: #f8f8ff;  /* 背景色 */
     outline: none;           /* ※ブラウザが標準で付加する線を消したいとき */
+}
+
+p{
+  margin:2 0;
 }

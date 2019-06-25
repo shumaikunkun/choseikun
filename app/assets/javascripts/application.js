@@ -48,10 +48,20 @@ function allcheck(bool){
 
 function checkForm(){
   if(document.make.day.value==""||document.make.start.value==""||document.make.finish.value==""){
-    alert('入力してください')
+    alert('日付と時間を入力してください')
     return false;
   }else if(Number(document.make.start.value)>Number(document.make.finish.value)){
     alert('不正な時間帯です')
+    return false;
+  }else{
+    return true;
+  }
+}
+
+
+function checkForm1(){
+  if(document.vote.name.value==""){
+    alert('名前を入力してください')
     return false;
   }else{
     return true;
