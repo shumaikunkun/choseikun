@@ -10,6 +10,11 @@
   <h1>日程調整サイト</h1>
   <div  class="big">
     <div class="small">
+
+      <% if params[:num].to_i<@page_count && params[:num].to_i>0 %>
+
+
+
       <!--
       ルートからと同じパスからのページ参照があるせいでフォーム先のページを
       条件分岐する必要がある際に以下のコマンドで現在のパスを得る
@@ -53,6 +58,12 @@
       <%= button_tag "全解除", type:'button', onclick: "allcheck(false)" %>
       <input type="submit" value="投票">
       <% end %>
+
+
+      <% else %>
+        <h2>未設定のページです</h2>
+      <% end %>
+
     </div>
   </div>
   <div class="under">

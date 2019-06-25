@@ -19,8 +19,14 @@
   <div  class="big">
     <div class="small">
 
-<input type="text" id="flatpickr">
+<%=form_tag("example/inform", name:"vote")  do %>
+<input type="text" id="flatpickr1" name="day">
 
+<input type="text" id="flatpickr2" name="start">
+<input type="text" id="flatpickr2" name="finish">
+
+<input type="submit" value="作成">
+<% end %>
 
     </div>
   </div>
@@ -29,14 +35,21 @@
   </div>
 
   <script>
-    flatpickr("#flatpickr", {locale:"ja",
+    flatpickr("#flatpickr1",
+    {locale:"ja",
     minDate:"today",
     mode: "multiple",
-dateFormat: "m/d",
-inline: true,
-
+    dateFormat: "m/d",
+    inline: true,
   });
-
+  flatpickr("#flatpickr2",
+  {
+    enableTime: true,
+    noCalendar: true,
+    dateFormat: "H",
+    time_24hr: true,
+    inline: true,
+});
   </script>
 
 </body>
