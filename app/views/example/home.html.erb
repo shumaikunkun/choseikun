@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>日程調整サイト</title>
+  <title>日程調整サイト生成サイト</title>
   <%= stylesheet_link_tag 'application', media:'all', 'data-turbolinks-track'=>true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track'=>true %>
   <%= csrf_meta_tags %>
@@ -9,23 +9,27 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ja.js"></script>
-  <style>input[type="text"]{width:500px;}</style>
+  <style>input[type="text"]{width:400px;}</style>
 
 
 
 </head>
 <body>
-  <h1>日程調整サイト</h1>
+  <h1>日程調整サイト生成サイト</h1>
   <div  class="big">
     <div class="small">
 
-<%=form_tag("example/inform", name:"vote")  do %>
-<input type="text" id="flatpickr1" name="day">
+<%=form_tag("example/inform", name:"make")  do %>
+<div class="left">
+  <input type="text" id="flatpickr1" name="day">
+</div>
 
-<input type="text" id="flatpickr2" name="start">
-<input type="text" id="flatpickr2" name="finish">
+<div class="right">
+  <input type="text" id="flatpickr2" name="start">
+  <input type="text" id="flatpickr2" name="finish">
+</div>
 
-<input type="submit" value="作成">
+<input type="submit" value="作成" onclick="return checkForm();">
 <% end %>
 
     </div>

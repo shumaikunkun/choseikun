@@ -45,3 +45,15 @@ function allcheck(bool){
     }
   }
 }
+
+function checkForm(){
+  if(document.make.day.value==""||document.make.start.value==""||document.make.finish.value==""){
+    alert('入力してください')
+    return false;
+  }else if(Number(document.make.start.value)>Number(document.make.finish.value)){
+    alert('不正な時間帯です')
+    return false;
+  }else{
+    return true;
+  }
+}
