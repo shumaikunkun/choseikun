@@ -69,23 +69,25 @@
 }
 
 .title {
-  position: relative;/*相対位置*/
-  padding: 0.5em 0.5em 0.5em 1.5em;/*アイコン分のスペース*/
-  line-height: 1.4;/*行高*/
-  color: #ff6a6a;/*文字色*/
-  border-top: dotted 1px gray;
-  border-bottom: dotted 1px gray;
-  background: #fffff4;
+  position: relative;
+  padding: 0.25em 1em;
+  border-top: solid 2px black;
+  border-bottom: solid 2px black;
 }
-
+.title:before, .title:after {
+  content: '';
+  position: absolute;
+  top: -7px;
+  width: 2px;
+  height: -webkit-calc(100% + 14px);
+  height: calc(100% + 14px);
+  background-color: black;
+}
 .title:before {
-  font-family: "Font Awesome 5 Free";/*忘れずに*/
-  content: "\f138";/*アイコンのユニコード*/
-  position: absolute;/*絶対位置*/
-  font-size: 1em;/*サイズ*/
-  left: 0.25em;/*アイコンの位置*/
-  top: 0.5em;/*アイコンの位置*/
-  color: #ff6a6a; /*アイコン色*/
+  left: 7px;
+}
+.title:after {
+  right: 7px;
 }
 
 
@@ -148,5 +150,5 @@ input[type="text"]
 }
 
 p{
-  margin:2 0;
+  margin:5px 0;
 }
