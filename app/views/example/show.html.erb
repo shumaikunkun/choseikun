@@ -12,6 +12,8 @@
   <div  class="big">
     <div class="small">
 
+      <% if params[:num].to_i<@page_count && params[:num].to_i>0 %>
+
       <% @all_datas.each do |k,v| %>
       <% @test1=Array.new(@day.size){Array.new(@hour.size,0)} %>
       <% v.each {|k,v| @test1[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v} %>
@@ -43,6 +45,9 @@
 
       <h2>投票画面は<%= link_to("こちら","http://localhost:3000/#{params[:num]}/vote") %>をクリック</h2>
 
+      <% else %>
+        <h2>未設定のページです</h2>
+      <% end %>
 
     </div>
   </div>

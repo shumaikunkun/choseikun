@@ -1,6 +1,9 @@
 
 class ExampleController < ApplicationController
 
+  #次の修正箇所=>同じ変数宣言をやめる
+  #スーパークラスに変数を記述して継承させるか、クラス変数にして同じクラスで別のメソットから呼び出せるようにする
+
   def home
     @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
   end
@@ -36,6 +39,9 @@ class ExampleController < ApplicationController
   def show
     @day=Daymodel.where(num:params[:num]).pluck(:day)
     @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
+    @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
+                                                #=>ワイルドカードがこれより大きかった未配置なので投票できなくする
+
 
     @all_user=Shosai.where(num:params[:num]).pluck(:name).uniq  #ユーザー一覧
     @all_datas={}
