@@ -18,6 +18,8 @@
       <h2><%= link_to("http://localhost:3000/#{@page_count}/vote","http://localhost:3000/#{@page_count}/vote") %>で投票でき、<br/>
         <%= link_to("http://localhost:3000/#{@page_count}/show","http://localhost:3000/#{@page_count}/show") %>で結果が見れます。</h2>
 
+
+<!-- "#{request.url.gsub(/infoem/,1+"/vote")}" -->
       </div>
     </div>
     <div class="under">

@@ -43,7 +43,8 @@
       </table>
       <% end %>
 
-      <h2>投票画面は<%= link_to("こちら","http://localhost:3000/#{params[:num]}/vote") %>をクリック</h2>
+      <h2>投票画面は<%= link_to("こちら","#{request.url.gsub(/show/,"vote")}") %>をクリック</h2>
+      <%# <%= link_to("こちら","http://localhost:3000/#{params[:num]}/vote") %> 
 
       <% else %>
         <h2>未設定のページです</h2>

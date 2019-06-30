@@ -38,7 +38,8 @@
         </tr>
         <% end %>
       </table>
-      <h2>投票結果は<%= link_to("こちら","http://localhost:3000/#{params[:num]}/show") %>をクリック</h2>
+      <h2>投票結果は<%= link_to("こちら","#{request.url.gsub(/confirm/,"show")}") %>をクリック</h2>
+      <%# <%= link_to("こちら","http://localhost:3000/#{params[:num]}/show") %>
     </div>
   </div>
   <div class="under">
