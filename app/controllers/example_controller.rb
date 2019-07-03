@@ -42,7 +42,6 @@ class ExampleController < ApplicationController
     @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
                                                 #=>ワイルドカードがこれより大きかった未配置なので投票できなくする
 
-
     @all_user=Shosai.where(num:params[:num]).pluck(:name).uniq  #ユーザー一覧
     @all_datas={}
     @all_user.each do|u|
