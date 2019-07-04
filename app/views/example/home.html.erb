@@ -16,9 +16,7 @@
   <h1>日程調整サイト生成サイト</h1>
   <div  class="big">
     <div class="small">
-      
-
-      <%=form_tag("example/inform", name:"make")  do %>
+      <%=form_tag(path=request.path_info=="/" ? "example/inform" : "inform", name:"make") do %>
       <div class="left">
         <h2 class="title">日付を選択してください。</h2>
         <p>選択日付</p>
