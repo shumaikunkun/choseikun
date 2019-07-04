@@ -12,6 +12,7 @@ class ExampleController < ApplicationController
     @input_day=params[:day].split(",").map{|d|d.split("/").map{|n|p n.to_i}.join("/")}  #入力した日付を整数化し配列にする
     @input_hour=(params[:start]..params[:finish]).to_a.map!(&:to_i)
     @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
+    #Hashmodel.create(random:SecureRandom.alphanumeric(7),num:@page_count)
     @input_day.each{|d|Daymodel.create(day:d,num:@page_count)}
     @input_hour.each{|h|Hourmodel.create(hour:h,num:@page_count)}
   end
@@ -52,5 +53,7 @@ class ExampleController < ApplicationController
   end
 
   def memo
+    @random=[]
+    30.times{@random.push(SecureRandom.alphanumeric(7)) }
   end
 end

@@ -1,0 +1,2 @@
+class Hasher < ApplicationRecord
+end

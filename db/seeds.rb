@@ -35,3 +35,7 @@ Hourmodel.create(:hour=>17, :num=>1)
 Hourmodel.create(:hour=>18, :num=>1)
 Hourmodel.create(:hour=>19, :num=>1)
 Hourmodel.create(:hour=>20, :num=>1)
+
+
+Hasher.create(:random=>"0lg7D9Z", :num=>0)
+Hasher.create(:random=>"J3DdGoz", :num=>1)
