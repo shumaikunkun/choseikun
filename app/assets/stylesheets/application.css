@@ -152,3 +152,16 @@ input[type="text"]
 p{
   margin:5px 0;
 }
+
+/* td{padding:0 0;
+} */
+
+.cantouchall{display: block;
+  width:100%;
+  height:100%;
+  margin: 0 0;
+}
+
+input[type="checkbox"]{
+  /* display: none; */
+}

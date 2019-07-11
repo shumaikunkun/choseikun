@@ -40,7 +40,9 @@
           <td>
             <% uniq="#{d}-#{h}" %>
             <%# <%=uniq %>
+            <label class="cantouchall">
             <%=check_box "checklist", uniq, {:class => d} %>
+            </label>
           </td>
           <% end %>
           <td>
