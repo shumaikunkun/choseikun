@@ -39,3 +39,6 @@ Hourmodel.create(:hour=>20, :num=>1)
 
 Hasher.create(:random=>"0lg7D9Z", :num=>0)
 Hasher.create(:random=>"J3DdGoz", :num=>1)
+
+Title.create(:title=>"案件1", :num=>0)
+Title.create(:title=>"受付シフト", :num=>0)

@@ -17,6 +17,10 @@
   <div  class="big">
     <div class="small">
       <%=form_tag(path=request.path_info=="/" ? "example/inform" : "inform", name:"make") do %>
+
+      <h2 class="title">イベント名を入力してください</h2>
+      <input type="text" name="title"><br /><br />
+
       <div class="left">
         <h2 class="title">日付を選択してください。</h2>
         <p>選択日付</p>

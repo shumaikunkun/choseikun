@@ -15,6 +15,8 @@ class ExampleController < ApplicationController
     #Hashmodel.create(random:SecureRandom.alphanumeric(7),num:@page_count)
     @input_day.each{|d|Daymodel.create(day:d,num:@page_count)}
     @input_hour.each{|h|Hourmodel.create(hour:h,num:@page_count)}
+    @title=params[:title]
+    Title.create(title:@title,num:@page_count)
   end
 
   def vote
@@ -22,6 +24,7 @@ class ExampleController < ApplicationController
     @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
     @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
                                                 #=>ワイルドカードがこれより大きかった未配置なので投票できなくする
+    @title=Title.where(num:params[:num]).pluck(:title).join  #配列型で返されてしまうため文字列に戻す
   end
 
   def confirm
@@ -35,6 +38,7 @@ class ExampleController < ApplicationController
       Shosai.create(name:@name,key:k,value:v,num:params[:num])  #データベース格納
       @test[@day.index(k.split("-")[0])][@hour.index(k.split("-")[1].to_i)]=v
     end
+    @title=Title.where(num:params[:num]).pluck(:title).join
   end
 
   def show
@@ -42,7 +46,6 @@ class ExampleController < ApplicationController
     @hour=Hourmodel.where(num:params[:num]).pluck(:hour).map!(&:to_i)  #時間を整数化
     @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
                                                 #=>ワイルドカードがこれより大きかった未配置なので投票できなくする
-
     @all_user=Shosai.where(num:params[:num]).pluck(:name).uniq  #ユーザー一覧
     @all_datas={}
     @all_user.each do|u|
@@ -50,6 +53,7 @@ class ExampleController < ApplicationController
       Shosai.where(name:u).where(num:params[:num]).each{|s|@all_data.store(s.key,s.value)}
       @all_datas.store(u,@all_data)
     end
+    @title=Title.where(num:params[:num]).pluck(:title).join
   end
 
   def memo

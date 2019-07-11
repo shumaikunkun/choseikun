@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <h1>日程調整サイト</h1>
+  <h1><%=@title %>の日程調整サイト</h1>
   <div  class="big">
     <div class="small">
 
@@ -44,7 +44,7 @@
       <% end %>
 
       <h2>投票画面は<%= link_to("こちら","#{request.url.gsub(/show/,"vote")}") %>をクリック</h2>
-      <%# <%= link_to("こちら","http://localhost:3000/#{params[:num]}/vote") %> 
+      <%# <%= link_to("こちら","http://localhost:3000/#{params[:num]}/vote") %>
 
       <% else %>
         <h2>未設定のページです</h2>
