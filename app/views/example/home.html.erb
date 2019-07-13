@@ -39,7 +39,7 @@
       <input type="submit" value="作成" onclick="return checkForm();">
       <% end %><br />
 
-      <h2>管理者画面は<%= link_to("こちら","#{request.url}example/all") %>をクリック</h2>
+      <h2>管理者画面は<%= link_to("こちら",request.path_info=="/" ? "#{request.url}example/all" : "#{request.url.gsub(/home/,"all")}") %>をクリック</h2>
 
 
     </div>
