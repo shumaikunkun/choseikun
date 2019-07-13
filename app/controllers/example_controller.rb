@@ -8,6 +8,19 @@ class ExampleController < ApplicationController
     @page_count=Daymodel.pluck(:num).uniq.size  #今まで作成したページの数=>次のページの番号
   end
 
+  before_action :basic_auth, only: [:all] #allに参照する際にBasic認証する
+
+  def basic_auth
+    #http_basic_authenticate_with name:"amazon", password:"candidate"
+    authenticate_or_request_with_http_basic do|n,p|
+      n=="shumai" && p=="kun"
+    end
+  end
+
+  def all
+    @all_num=Daymodel.pluck(:num).uniq
+  end
+
   def inform
     @input_day=params[:day].split(",").map{|d|d.split("/").map{|n|p n.to_i}.join("/")}  #入力した日付を整数化し配列にする
     @input_hour=(params[:start]..params[:finish]).to_a.map!(&:to_i)

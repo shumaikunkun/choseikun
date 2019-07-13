@@ -6,5 +6,6 @@ Rails.application.routes.draw do
   get '*num/memo', to: 'example#memo'
   root 'example#home'
   get 'example/home'
+  get 'example/all'
   post 'example/inform'
 end
